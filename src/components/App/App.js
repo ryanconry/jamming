@@ -10,10 +10,10 @@ class App extends Component {
       <div>
         <h1>Ja<span class="highlight">mmm</span>ing</h1>
         <div className="App">
-          //<SearchBar />
+          <SearchBar />
           <div className="App-playlist">
-            //<SearchResults />
-            //<Playlist />
+            <SearchResults />
+            <Playlist />
           </div>
         </div>
       </div>
