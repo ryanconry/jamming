@@ -5,9 +5,15 @@ import Track from '../Track/Track';
 
 class TrackList extends React.Component {
   render(){
-    return(
+    return
+    (
       <div className="TrackList">
-          You will add a map method that renders a set of Track components  -->
+        {
+          <div className="Track-information">
+            <h3>{this.props.trackList.name} </h3>
+            <p>{this.props.trackList.artist} | {this.props.trackList.album}  </p>
+          </div>
+        }
       </div>
     );
   }
