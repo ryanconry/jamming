@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import TrackList from '../TrackList/TrackList';
 
 class App extends Component {
   constructor(props){
@@ -24,6 +25,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
+            //<TrackList trackList={this.state.searchResults} />;
             <Playlist />
           </div>
         </div>
