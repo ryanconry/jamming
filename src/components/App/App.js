@@ -8,12 +8,10 @@ import TrackList from '../TrackList/TrackList';
 class App extends Component {
   constructor(props){
     super(props);
-      this.state = {searchResults: {name: 'trackone', artist: 'artistone', album:
-    'albumone'}};
-    /*this.state = {searchResults: [{name: 'track_one', artist: 'artist_one',
+      this.state = {searchResults: [{name: 'track_one', artist: 'artist_one',
        album: 'album_one'},{name: 'track_two', artist: 'artist_two',
        album: 'album_two'}, {name: 'track_three', artist: 'artist_three',
-       album: 'album_three'}]};*/
+       album: 'album_three'}]};
 
   }
 
@@ -25,7 +23,6 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
-            //<TrackList trackList={this.state.searchResults} />;
             <Playlist />
           </div>
         </div>
