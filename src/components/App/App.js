@@ -16,18 +16,25 @@ class App extends Component {
       album: 'album_one'},{name: 'track_three', artist: 'artist_three',
       album: 'album_three'}]};
       this.addTrack = this.addTrack.bind(this)
+      this.removeTrack = this.removeTrack.bind(this);
     }
 
-      addTrack(track){
-        tracks=this.state.playlistTracks;
-        tracks.forEach(element=>{
-          if(element.id === track.id){
-            return;
-          }
-        });
-        tracks.push(track);
-        this.setState({playlistTracks: tracks});
+  addTrack(track){
+    tracks=this.state.playlistTracks;
+    tracks.forEach(element=>{
+      if(element.id === track.id){
+        return;
       }
+    });
+    tracks.push(track);
+    this.setState({playlistTracks: tracks});
+  }
+
+  removeTrack(track){
+    tracks=this.state.playlistTracks;
+    tracks=tracks.filter(element => element.id!=track.id);
+    this.setState({playList: tracks});
+  }
 
   render() {
     return (
@@ -39,7 +46,7 @@ class App extends Component {
             <SearchResults searchResults={this.state.searchResults}
              onAdd={this.addTrack} />
             <Playlist playlistName={this.state.playlistName} playlistTracks=
-            {this.state.playlistTracks}/>
+            {this.state.playlistTracks} onRemove={this.removeTrack} />
           </div>
         </div>
       </div>
