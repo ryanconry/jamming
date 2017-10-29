@@ -20,7 +20,7 @@ class App extends Component {
     }
 
   addTrack(track){
-    tracks=this.state.playlistTracks;
+    let tracks=this.state.playlistTracks;
     tracks.forEach(element=>{
       if(element.id === track.id){
         return;
@@ -31,8 +31,8 @@ class App extends Component {
   }
 
   removeTrack(track){
-    tracks=this.state.playlistTracks;
-    tracks=tracks.filter(element => element.id!=track.id);
+    let tracks=this.state.playlistTracks;
+    tracks=tracks.filter(element => element.id!==track.id);
     this.setState({playList: tracks});
   }
 
@@ -44,9 +44,10 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults}
-             onAdd={this.addTrack} />
+             onAdd={this.addTrack} action={false}/>
             <Playlist playlistName={this.state.playlistName} playlistTracks=
-            {this.state.playlistTracks} onRemove={this.removeTrack} />
+            {this.state.playlistTracks} onRemove={this.removeTrack}
+            action={true}/>
           </div>
         </div>
       </div>
