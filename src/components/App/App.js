@@ -15,8 +15,9 @@ class App extends Component {
      [{name: 'track_one', artist: 'artist_one',
       album: 'album_one'},{name: 'track_three', artist: 'artist_three',
       album: 'album_three'}]};
-      this.addTrack = this.addTrack.bind(this)
+      this.addTrack = this.addTrack.bind(this);
       this.removeTrack = this.removeTrack.bind(this);
+      this.updatePlaylistName = this.updatePlaylistName.bind(this);
     }
 
   addTrack(track){
@@ -32,8 +33,12 @@ class App extends Component {
 
   removeTrack(track){
     let tracks=this.state.playlistTracks;
-    tracks=tracks.filter(element => element.id!==track.id);
-    this.setState({playList: tracks});
+    tracks.filter(element => element.id !== track.id);
+    this.setState({playlistTracks: tracks});
+  }
+
+  updatePlaylistName(newName){
+    this.setState({playlistName: newName});
   }
 
   render() {
@@ -47,7 +52,7 @@ class App extends Component {
              onAdd={this.addTrack} action={false}/>
             <Playlist playlistName={this.state.playlistName} playlistTracks=
             {this.state.playlistTracks} onRemove={this.removeTrack}
-            action={true}/>
+            action={true} onNameChange={this.updatePlaylistName}/>
           </div>
         </div>
       </div>
